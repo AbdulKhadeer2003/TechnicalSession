@@ -1,0 +1,36 @@
+import java.util.*;
+public class Anagram{
+    public static void main(String arg[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String");
+        String a=sc.nextLine();
+        System.out.println("Enter a String");
+        String b=sc.nextLine();
+        if(a.length()!=b.length()){
+            System.out.println("They are not Anagrams");
+        }
+        HashSet<Character> set1=new HashSet<>();
+        HashSet<Character> set2=new HashSet<>();
+        char char1[]=a.toCharArray();
+        char char2[]=b.toCharArray();
+        Character[] c1 = new Character[char1.length];
+        Character[] c2 = new Character[char1.length];
+        // Using auto-boxing
+        for (int i = 0; i < char1.length; i++) {
+            c2[i] = char2[i];
+        }
+        for (int i = 0; i < char2.length; i++) {
+            c2[i] = char2[i];
+        }
+        set1.addAll(Arrays.asList(c1));
+        set2.addAll(Arrays.asList(c2));
+        System.out.println(set1);
+        System.out.println(set2);
+        if(set1.containsAll(set2)){
+            System.out.println("They are Anagrams");
+        }
+        else{
+            System.out.println("They are not Anagrams");
+        }
+    }
+}
